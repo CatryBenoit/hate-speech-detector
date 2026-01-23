@@ -38,7 +38,17 @@ Ce projet est un pipeline de modération automatique conçu pour détecter les d
 
 ## Installation et Lancement
 
-### 1. Lancement de l'API (FastAPI)
+### 1. Entraînement du modèle
+Avant de lancer l'API, il est nécessaire d'entraîner le modèle pour générer les fichiers de poids (sauvegardés dans `./model`).
+
+Le dataset CSV provient de : Hate Speech and Offensive Language Dataset.
+https://www.kaggle.com/datasets/mrmorj/hate-speech-and-offensive-language-dataset
+
+```bash
+python train.py
+```
+
+### 2. Lancement de l'API (FastAPI)
 ```bash
 cd app
 python -m venv .venv
