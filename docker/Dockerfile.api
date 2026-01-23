@@ -1,0 +1,26 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# deps système minimales
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+  && rm -rf /var/lib/apt/lists/*
+
+# requirements
+COPY app/requirements-api.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# code
+COPY app/main.py /app/main.py
+
+# modèle (option A : tu embarques le modèle dans l'image)
+# Si tu préfères le monter en volume via docker-compose, enlève ces 2 lignes
+COPY app/model /app/model
+
+EXPOSE 8000
+
+ENV APP_PORT=8000
+ENV MODEL_DIR=/app/model
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    container_name: toxic_api
+    env_file: .env
+    ports:
+      - "8000:8000"
+    # Option B (recommandée) : monter le modèle depuis ta machine au lieu de le baked-in
+    # volumes:
+    #   - ./app/model:/app/model:ro
+
+  front:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.front
+    container_name: toxic_front
+    env_file: .env
+    ports:
+      - "8501:8501"
+    environment:
+      # ton front peut utiliser ça si tu le lis dans front.py (optionnel)
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      - api
