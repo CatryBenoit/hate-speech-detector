@@ -1,3 +1,11 @@
+<!-- PORTFOLIO_CONFIG
+system: PERSO
+tech: FastAPI / BERT / Streamlit / Argos Translate / Docker
+desc: API de détection de discours haineux basée sur un pipeline NLP combinant traduction automatique et modèle BERT fine-tuné. Le projet inclut une API FastAPI, une interface Streamlit et un système de classification avec score de toxicité en temps réel.
+color: #ff0055
+-->
+
+
 # Toxic Detector API (Translate → Detect → %)
 
 Ce projet est un pipeline de modération automatique conçu pour détecter les discours haineux et le langage offensant. Il combine un service de traduction et un modèle de Deep Learning (BERT).
