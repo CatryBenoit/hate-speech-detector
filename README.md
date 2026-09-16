@@ -3,6 +3,8 @@ system: PERSO
 tech: FastAPI / BERT / Streamlit / Argos Translate / Docker
 desc: API de détection de discours haineux basée sur un pipeline NLP combinant traduction automatique et modèle BERT fine-tuné. Le projet inclut une API FastAPI, une interface Streamlit et un système de classification avec score de toxicité en temps réel.
 color: #ff0055
+visible: true
+debloy: false
 -->
 
 
